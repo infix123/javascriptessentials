@@ -29,20 +29,22 @@ function endTest() {
 
     var ty = userTypedText.split(/\s+/);
     console.log(ty);
+    var goat = ty.filter(word => word !== "");
+    console.log(goat.length);
 
 
     var wpm = 0;
 
     if (timeelapsed !== 0 && !isNaN(typedwords)) {
-        wpm = Math.round((typedWords / timeElapsed) * 60);
+        wpm = Math.round((typedwords / timeelapsed) * 60);
 
     }
 
 
     var outputDiv = document.getElementById("output");
     outputDiv.innerHTML = "<h2>Typing Test Results:</h2>" +
-        "<p>Words Typed: " + typedWords + "</p>" +
-        "<p>Time Elapsed: " + timeElapsed.toFixed(2) + " seconds</p>" +
+        "<p>Words Typed: " + typedwords + "</p>" +
+        "<p>Time Elapsed: " + timeelapsed.toFixed(2) + " seconds</p>" +
         "<p>Words Per Minute (WPM): " + wpm + "</p>";
 
     var button = document.getElementById("btn");
