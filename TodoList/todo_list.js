@@ -10,9 +10,10 @@ let tasks = [];
 function addTask(){
     const taskText = taskInput.value.trim();
     if(taskText !== ""){
-        tasks.push({text:taskText});
+        tasks.push({text:taskText, completed:false});
         taskInput.value = "";
         displayTasks();
+        console.log(tasks);
     }
 }
 
@@ -20,7 +21,7 @@ function displayTasks(){
     taskList.innerHTML = "";
     tasks.forEach((task, index) => {
         const li = document.createElement("li");
-        li.innerHTML = `<input type ="checkbox" id="task-${index}" ${task.completed} ? "checked" : "">
+        li.innerHTML = `<input type ="checkbox" id="task-${index}" ${task.completed ? "checked=checked" : ""}>
                 <label for="task-${index}">${task.text}</label>`;
         li.querySelector("input").addEventListener("change", () => toggleTask(index));
         taskList.appendChild(li);
@@ -37,5 +38,5 @@ function displayTasks(){
             displayTasks();
         }
 
-        addTaskBtn.addEventListener("click", addTask);
+      addTaskBtn.addEventListener("click", addTask);
       clearCompletedBtn.addEventListener("click", clearCompletedTasks);
