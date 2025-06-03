@@ -5,7 +5,7 @@ function showweatherDetails(event){
     const apiKey = 'df53b6ae9eeed26f0cda6e94d3959fe4';
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
 
-    fetch(apiurl)
+    fetch(apiUrl)
         .then(response =>response.json())
         .then(data => {
             const weatherInfo = document.getElementById('weatherInfo');
